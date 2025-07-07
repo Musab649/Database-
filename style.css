@@ -1,0 +1,158 @@
+/* Reset */
+* { margin:0; padding:0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #333;
+  direction: rtl;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  background-color: #0d47a1;
+  color: white;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+main {
+  flex: 1;
+  padding: 20px;
+}
+.section { display: none; max-width: 900px; margin: 20px auto; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 30px; }
+.section.active { display: block; }
+
+/* Splash Screen */
+#splash h1 {
+  font-size: 2.8rem;
+  color: #0d47a1;
+  margin-bottom: 20px;
+}
+#splash img {
+  width: 200px;
+  margin: 20px auto;
+  display: block;
+}
+
+/* Buttons */
+button {
+  background-color: #0d47a1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin: 10px 5px 0 5px;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #083b75;
+}
+
+/* Inputs and selects */
+input[type=text], input[type=number], select {
+  font-size: 1.1rem;
+  padding: 12px 15px;
+  width: 100%;
+  margin: 10px 0 20px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+input[type=text]:focus, input[type=number]:focus, select:focus {
+  outline: none;
+  border-color: #0d47a1;
+}
+
+/* Form labels */
+label {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Layout Flex */
+.flex-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.flex-item {
+  flex: 1 1 250px;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: center;
+  font-size: 1rem;
+}
+th {
+  background-color: #0d47a1;
+  color: white;
+}
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Scroll for tables */
+.table-wrapper {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+/* Alerts */
+.alert {
+  background-color: #ffdddd;
+  border-left: 6px solid #f44336;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+/* Clock at bottom left */
+#clock {
+  position: fixed;
+  bottom: 12px;
+  left: 12px;
+  background-color: #0d47a1;
+  color: white;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+/* Large inputs for better UX */
+.large-input {
+  font-size: 1.3rem;
+  padding: 14px 18px;
+}
+
+/* Responsive for small devices */
+@media (max-width: 600px) {
+  .flex-row { flex-direction: column; }
+  button {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+/* Image preview */
+#logoPreview {
+  max-width: 150px;
+  max-height: 120px;
+  margin: 0 auto 15px auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(13,71,161,0.4);
+}
