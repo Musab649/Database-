@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>نظام كاشير مسالخ الظفرة</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header id="headerTitle">نظام كاشير المسالخ</header>
+
+<main>
+
+  <!-- شاشة الترحيب -->
+  <section id="splash" class="section active" aria-label="شاشة الترحيب">
+    <h1>مرحباً بكم في نظام إدارة الفواتير بمسالخ الظفرة</h1>
+    <img id="logoSplash" src="" alt="شعار النظام" />
+  </section>
+
+  <!-- شاشة تسجيل الدخول -->
+  <section id="login" class="section" aria-label="تسجيل الدخول">
+    <label for="employeeId">الرقم الوظيفي:</label>
+    <input id="employeeId" type="text" autocomplete="off" placeholder="أدخل الرقم الوظيفي" class="large-input" />
+    <button id="btnLogin">دخول</button>
+  </section>
+
+  <!-- لوحة التحكم -->
+  <section id="dashboard" class="section" aria-label="لوحة التحكم">
+    <h2>مرحباً <span id="username"></span></h2>
+    <button id="btnDataEntry">إدخال البيانات</button>
+    <button id="btnReport">تقرير المتعاملين</button>
+    <button id="btnSettings">الإعدادات</button>
+    <button id="btnLogout">تسجيل خروج</button>
+  </section>
+
+  <!-- شاشة إدخال البيانات -->
+  <section id="dataEntry" class="section" aria-label="إدخال البيانات">
+    <h2 id="dataEntrySiteTitle"></h2>
+
+    <label for="invoiceNumber">رقم الفاتورة:</label>
+    <input id="invoiceNumber" type="text" readonly class="large-input" />
+
+    <label for="phone">رقم الهاتف:</label>
+    <input id="phone" type="text" autocomplete="off" class="large-input" />
+
+    <label for="clientName">اسم المتعامل:</label>
+    <input id="clientName" type="text" autocomplete="off" class="large-input" />
+
+    <div class="flex-row">
+      <div class="flex-item">
+        <label for="animalType">نوع الذبيحة:</label>
+        <select id="animalType" class="large-input"></select>
+      </div>
+      <div class="flex-item">
+        <label for="cuttingType">نوع التقطيع:</label>
+        <select id="cuttingType" class="large-input"></select>
+      </div>
+      <div class="flex-item">
+        <label for="animalNumber">رقم الذبيحة:</label>
+        <select id="animalNumber" class="large-input"></select>
+      </div>
+      <div class="flex-item">
+        <label for="stickerNumber">رقم الاستيكر:</label>
+        <select id="stickerNumber" class="large-input"></select>
+      </div>
+    </div>
+
+    <label for="quantity">عدد الذبائح:</label>
+    <select id="quantity" class="large-input"></select>
+
+    <label>طريقة الدفع:</label><br />
+    <label><input type="radio" name="paymentType" value="كاش" checked /> كاش</label>
+    <label><input type="radio" name="paymentType" value="بطاقة" /> بطاقة</label>
+
+    <label for="unitPrice">سعر الوحدة:</label>
+    <input id="unitPrice" type="number" readonly class="large-input" />
+
+    <label for="totalPrice">الإجمالي:</label>
+    <input id="totalPrice" type="number" readonly class="large-input" />
+
+    <button id="btnSaveData">إضافة</button>
+    <button id="btnBackToDashboardFromEntry">رجوع</button>
+  </section>
+
+  <!-- شاشة التقرير -->
+  <section id="report" class="section" aria-label="تقرير المتعاملين">
+    <h2>تقرير المتعاملين</h2>
+
+    <label for="filterSite">الموقع:</label>
+    <select id="filterSite" class="large-input"></select>
+
+    <label for="filterDateFrom">من تاريخ:</label>
+    <input id="filterDateFrom" type="date" />
+
+    <label for="filterDateTo">إلى تاريخ:</label>
+    <input id="filterDateTo" type="date" />
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>الموقع</th>
+            <th>اسم المتعامل</th>
+            <th>رقم الهاتف</th>
+            <th>رقم الفاتورة</th>
+            <th>نوع الذبيحة</th>
+            <th>نوع التقطيع</th>
+            <th>عدد الذبائح</th>
+            <th>طريقة الدفع</th>
+            <th>سعر الوحدة</th>
+            <th>الإجمالي</th>
+            <th>آخر تعديل</th>
+          </tr>
+        </thead>
+        <tbody id="reportTableBody"></tbody>
+      </table>
+    </div>
+    <button id="btnBackToDashboardFromReport">رجوع</button>
+  </section>
+
+  <!-- شاشة الإعدادات -->
+  <section id="settings" class="section" aria-label="الإعدادات">
+    <h2>الإعدادات</h2>
+
+    <label for="siteInput">إضافة موقع جديد:</label>
+    <input id="siteInput" type="text" placeholder="اسم الموقع" class="large-input" />
+    <button id="btnAddSite">إضافة موقع</button>
+
+    <label for="animalInput">إضافة نوع ذبيحة جديد:</label>
+    <input id="animalInput" type="text" placeholder="نوع الذبيحة" class="large-input" />
+    <button id="btnAddAnimal">إضافة نوع ذبيحة</button>
+
+    <label for="cuttingInput">إضافة نوع تقطيع جديد:</label>
+    <input id="cuttingInput" type="text" placeholder="نوع التقطيع" class="large-input" />
+    <button id="btnAddCutting">إضافة نوع تقطيع</button>
+
+    <label>تعيين أسعار:</label>
+    <div class="flex-row">
+      <select id="priceAnimal" class="large-input"></select>
+      <select id="priceCutting" class="large-input"></select>
+      <input id="priceValue" type="number" placeholder="السعر" min="0" class="large-input" />
+      <button id="btnSetPrice">حفظ السعر</button>
+    </div>
+
+    <label for="logoUpload">رفع صورة شعار:</label>
+    <input type="file" id="logoUpload" accept="image/*" />
+    <img id="logoPreview" alt="معاينة الشعار" />
+
+    <button id="btnBackToDashboardFromSettings">رجوع</button>
+  </section>
+
+</main>
+
+<div id="clock"></div>
+
+<script src="app.js" type="module"></script>
+
+</body>
+</html>
